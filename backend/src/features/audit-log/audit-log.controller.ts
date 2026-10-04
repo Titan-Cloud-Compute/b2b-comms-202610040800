@@ -1,25 +1,32 @@
-import { Controller, NotImplementedException, UseGuards, Get, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, UseGuards, Get, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { UserRole } from '@prisma/client';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { Roles, RolesGuard } from '../../auth/roles.guard';
 import { AuditLogService } from './audit-log.service';
+import {
+  GetApiAdminAuditLogResponseDto,
+  PostApiAdminAuditLogRequestDto,
+  PostApiAdminAuditLogResponseDto,
+} from './audit-log.dto';
 
 @ApiTags('audit-log')
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Roles(UserRole.ADMIN)
-@Controller('api/audit-log')
+@Controller('api/admin/audit-log')
 export class AuditLogController {
   constructor(private readonly auditlog: AuditLogService) {}
 
-  @Get('api/admin/audit-log')
-  async getApiAdminAuditLog() {
-    throw new NotImplementedException();
+  @Get()
+  async getApiAdminAuditLog(): Promise<GetApiAdminAuditLogResponseDto[]> {
+    return this.auditlog.list();
   }
 
-  @Post('api/admin/audit-log')
-  async postApiAdminAuditLog() {
-    throw new NotImplementedException();
+  @Post()
+  @HttpCode(201)
+  async postApiAdminAuditLog(
+    @Body() body: PostApiAdminAuditLogRequestDto,
+  ): Promise<PostApiAdminAuditLogResponseDto & { userId: string }> {
+    return this.auditlog.create(body);
   }
-
 }
