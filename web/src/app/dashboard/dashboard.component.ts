@@ -29,17 +29,17 @@ import { FormsModule } from '@angular/forms';
   `,
   styles: [`
     .dashboard-page {
-      max-width: 800px;
+      max-width: var(--page-max-width);
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: var(--space-8) var(--space-4);
     }
     .page-header {
-      margin-bottom: 2rem;
+      margin-bottom: var(--space-8);
     }
     h1 {
       font-size: var(--font-size-xl);
       color: var(--color-text-primary);
-      margin: 0 0 0.25rem;
+      margin: 0 0 var(--space-1);
     }
     .subtitle {
       color: var(--color-text-secondary);
@@ -47,24 +47,24 @@ import { FormsModule } from '@angular/forms';
       margin: 0;
     }
     .placeholder-card {
-      background: white;
+      background: var(--color-surface);
       border-radius: var(--radius-card);
       border: 1px solid var(--color-border);
-      padding: 2rem;
+      padding: var(--space-8);
     }
     .placeholder-text {
       color: var(--color-text-secondary);
-      margin: 0 0 1.5rem;
+      margin: 0 0 var(--space-6);
     }
     .placeholder-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: var(--space-4);
     }
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 0.375rem;
+      gap: var(--space-2);
     }
     .form-group label {
       font-size: var(--font-size-sm);
@@ -72,19 +72,19 @@ import { FormsModule } from '@angular/forms';
       color: var(--color-text-primary);
     }
     .form-group input {
-      padding: 0.625rem 0.75rem;
+      padding: var(--space-3) var(--space-3);
       font-size: var(--font-size-input, 1rem);
       border: 1px solid var(--color-gray-300);
       border-radius: var(--radius-btn);
-      background: white;
+      background: var(--color-surface);
       min-height: 44px;
     }
     .btn-primary {
       align-self: flex-start;
-      padding: 0.625rem 1.5rem;
+      padding: var(--space-3) var(--space-6);
       font-size: var(--font-size-sm);
       font-weight: 600;
-      color: white;
+      color: var(--color-white);
       background: var(--color-primary);
       border: none;
       border-radius: var(--radius-btn);

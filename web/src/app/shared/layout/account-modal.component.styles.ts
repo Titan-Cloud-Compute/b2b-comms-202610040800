@@ -17,7 +17,7 @@ export const accountModalStyles = `
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: var(--space-4);
       z-index: 1000;
     }
 
@@ -36,7 +36,7 @@ export const accountModalStyles = `
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 1.5rem;
+      padding: var(--space-5) var(--space-6);
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -66,25 +66,25 @@ export const accountModalStyles = `
     .modal-body {
       display: flex;
       align-items: stretch;
-      gap: 1.5rem;
-      padding: 1.5rem;
+      gap: var(--space-6);
+      padding: var(--space-6);
     }
 
     .settings-nav {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: var(--space-1);
       flex: 0 0 200px;
       width: 200px;
       border-right: 1px solid var(--color-border);
-      padding-right: 1rem;
+      padding-right: var(--space-4);
     }
 
     .settings-nav-item {
       display: block;
       width: 100%;
       text-align: left;
-      padding: 0.625rem 0.75rem;
+      padding: var(--space-3) var(--space-3);
       background: none;
       border: none;
       border-radius: var(--radius-btn);
@@ -113,7 +113,7 @@ export const accountModalStyles = `
     @media (max-width: 640px) {
       .modal-body {
         flex-direction: column;
-        gap: 1rem;
+        gap: var(--space-4);
       }
       .settings-nav {
         flex: 0 0 auto;
@@ -123,13 +123,13 @@ export const accountModalStyles = `
         border-right: none;
         border-bottom: 1px solid var(--color-border);
         padding-right: 0;
-        padding-bottom: 1rem;
+        padding-bottom: var(--space-4);
       }
     }
 
     .account-section {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -143,11 +143,11 @@ export const accountModalStyles = `
       font-size: var(--font-size-md);
       font-weight: 600;
       color: var(--color-primary);
-      margin: 0 0 1rem 0;
+      margin: 0 0 var(--space-4) 0;
     }
 
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: var(--space-4);
     }
 
     .form-group label {
@@ -155,12 +155,12 @@ export const accountModalStyles = `
       font-size: var(--font-size-sm);
       font-weight: 500;
       color: var(--color-text-secondary);
-      margin-bottom: 0.375rem;
+      margin-bottom: var(--space-2);
     }
 
     .form-input {
       width: 100%;
-      padding: 0.75rem 1rem;
+      padding: var(--space-3) var(--space-4);
       font-size: var(--font-size-input);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-btn);
@@ -191,7 +191,7 @@ export const accountModalStyles = `
 
     .status-msg {
       display: block;
-      margin: 0.25rem 0 0.5rem;
+      margin: var(--space-1) 0 var(--space-2);
       font-size: var(--font-size-sm);
       color: var(--color-success-600);
     }
@@ -203,8 +203,8 @@ export const accountModalStyles = `
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.625rem 1rem;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
       background: var(--color-primary);
       color: white;
       border: none;
@@ -222,8 +222,8 @@ export const accountModalStyles = `
 
     .usage-row {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
+      gap: var(--space-4);
+      margin-bottom: var(--space-2);
     }
 
     .usage-stat {
@@ -231,7 +231,7 @@ export const accountModalStyles = `
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0.75rem;
+      padding: var(--space-3);
       background: var(--color-neutral-100);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-btn);
@@ -246,13 +246,13 @@ export const accountModalStyles = `
     .usage-label {
       font-size: var(--font-size-xs);
       color: var(--color-text-secondary);
-      margin-top: 0.25rem;
+      margin-top: var(--space-1);
       text-align: center;
     }
 
     .model-list {
       list-style: none;
-      margin: 0 0 0.75rem 0;
+      margin: 0 0 var(--space-3) 0;
       padding: 0;
     }
 
@@ -260,8 +260,8 @@ export const accountModalStyles = `
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.625rem 0;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
       border-bottom: 1px solid var(--color-neutral-200);
       min-height: 44px;
     }
@@ -273,7 +273,7 @@ export const accountModalStyles = `
     .model-name {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--space-2);
       color: var(--color-text-primary);
       font-weight: 500;
     }
@@ -289,14 +289,14 @@ export const accountModalStyles = `
 
     .model-actions {
       display: flex;
-      gap: 0.5rem;
+      gap: var(--space-2);
       flex-shrink: 0;
     }
 
     .add-model-controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: var(--space-2);
       align-items: stretch;
     }
 
@@ -313,7 +313,7 @@ export const accountModalStyles = `
     .btn-test {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--space-2);
       padding: 0.5rem 0.875rem;
       background: white;
       color: var(--color-primary);
@@ -336,8 +336,8 @@ export const accountModalStyles = `
     }
 
     .terms-gate {
-      margin-top: 1rem;
-      padding: 1rem;
+      margin-top: var(--space-4);
+      padding: var(--space-4);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-btn);
       background: var(--color-neutral-50);
@@ -347,16 +347,16 @@ export const accountModalStyles = `
       font-size: var(--font-size-sm);
       font-weight: 600;
       color: var(--color-primary);
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 var(--space-2) 0;
     }
 
     .terms-agree {
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
+      gap: var(--space-2);
       font-size: var(--font-size-sm);
       color: var(--color-text-primary);
-      margin: 0.5rem 0 0.75rem;
+      margin: var(--space-2) 0 var(--space-3);
       cursor: pointer;
     }
 

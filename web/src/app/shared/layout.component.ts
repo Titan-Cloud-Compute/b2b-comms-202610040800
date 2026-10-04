@@ -140,7 +140,7 @@ import { NavItem, FIRM_NAV_ITEMS, ADMIN_NAV_ITEMS, SHARED_NAV_ITEMS, ADMIN_TAB_M
       height: 56px;
       background: white;
       border-bottom: 1px solid var(--color-border);
-      padding: 0 1rem;
+      padding: 0 var(--space-4);
       align-items: center;
       z-index: 100;
       box-shadow: var(--shadow-nav);
@@ -178,7 +178,7 @@ import { NavItem, FIRM_NAV_ITEMS, ADMIN_NAV_ITEMS, SHARED_NAV_ITEMS, ADMIN_TAB_M
     }
 
     .mobile-lang-btn {
-      padding: 0.25rem 0.5rem;
+      padding: var(--space-1) var(--space-2);
       font-size: var(--font-size-xs);
       font-weight: 600;
       color: var(--color-text-secondary);
@@ -322,7 +322,7 @@ import { NavItem, FIRM_NAV_ITEMS, ADMIN_NAV_ITEMS, SHARED_NAV_ITEMS, ADMIN_TAB_M
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.25rem;
+      gap: var(--space-1);
       color: var(--color-text-secondary);
       font-size: var(--font-size-xs);
       font-weight: 500;

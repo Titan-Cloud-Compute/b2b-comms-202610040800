@@ -30,10 +30,10 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
     }
 
     .sidebar-header {
-      padding: 1.25rem 1.5rem;
+      padding: var(--space-5) var(--space-6);
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: var(--space-3);
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -54,7 +54,7 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
     }
 
     .role-banner {
-      margin: 0.75rem 1rem 0;
+      margin: var(--space-3) var(--space-4) 0;
       padding: 0.4rem 0.625rem;
       font-size: var(--font-size-xs);
       font-weight: 600;
@@ -62,7 +62,7 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
       border-radius: var(--radius-btn);
       display: inline-flex;
       align-items: center;
-      gap: 0.375rem;
+      gap: var(--space-2);
       width: fit-content;
     }
 
@@ -74,7 +74,7 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
 
     .sidebar-nav {
       flex: 1;
-      padding: 0.5rem 0.75rem 1rem;
+      padding: var(--space-2) var(--space-3) var(--space-4);
       display: flex;
       flex-direction: column;
       gap: 0.125rem;
@@ -94,8 +94,8 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
     .nav-item {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
       border-radius: var(--radius-md);
       color: var(--color-text-secondary);
       font-size: var(--font-size-md);
@@ -151,13 +151,13 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
       border-top: 1px solid var(--color-border);
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: var(--space-3);
     }
 
     .lang-toggle-container {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--space-2);
     }
 
     .lang-label {
@@ -170,14 +170,14 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
 
     .lang-toggle {
       display: flex;
-      gap: 0.25rem;
+      gap: var(--space-1);
       background: var(--color-bg-tertiary);
       padding: 3px;
       border-radius: var(--radius-btn);
     }
 
     .lang-btn {
-      padding: 0.375rem 0.625rem;
+      padding: var(--space-2) var(--space-3);
       font-size: var(--font-size-xs);
       font-weight: 600;
       color: var(--color-text-secondary);
@@ -189,7 +189,7 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
       min-height: 32px;
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: var(--space-1);
     }
 
     .lang-btn:hover {
@@ -225,9 +225,9 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
     .settings-link {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: var(--space-3);
       width: 100%;
-      padding: 0.75rem 1rem;
+      padding: var(--space-3) var(--space-4);
       font-size: var(--font-size-sm);
       font-weight: 500;
       color: var(--color-text-secondary);
@@ -258,13 +258,13 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--space-2);
     }
 
     .user-row {
       display: flex;
       align-items: center;
-      gap: 0.625rem;
+      gap: var(--space-3);
       flex-wrap: nowrap;
       flex: 1;
       min-width: 0;
@@ -272,7 +272,7 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
 
     .user-actions {
       display: flex;
-      gap: 0.25rem;
+      gap: var(--space-1);
       flex-shrink: 0;
     }
 
@@ -338,9 +338,9 @@ import { SIDEBAR_TEMPLATE } from './sidebar.template';
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0.625rem 1rem;
-      margin-top: 0.625rem;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      margin-top: var(--space-3);
       font-size: var(--font-size-sm);
       font-weight: 600;
       color: var(--color-primary);

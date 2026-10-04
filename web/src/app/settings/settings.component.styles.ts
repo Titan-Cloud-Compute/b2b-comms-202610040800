@@ -32,7 +32,7 @@ export const settingsComponentStyles = `
       color: var(--color-text-primary); font-size: var(--font-size-lg); margin-bottom: 1rem;
     }
     .badge {
-      padding: 0.25rem 0.625rem; border-radius: var(--radius-pill);
+      padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill);
       font-size: var(--font-size-xs); font-weight: 700; text-transform: uppercase;
     }
     .badge.ok { background: var(--color-success-bg); color: var(--color-success); }
@@ -74,7 +74,7 @@ export const settingsComponentStyles = `
     .hint { color: var(--color-text-tertiary); font-size: var(--font-size-sm); margin-top: 0.5rem; }
     .toggle-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);
+      padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border-light);
       min-height: 44px;
     }
     .toggle-row:last-child { border-bottom: none; }
@@ -82,11 +82,11 @@ export const settingsComponentStyles = `
     .modal-overlay {
       position: fixed; inset: 0; background: var(--color-overlay-strong);
       display: flex; align-items: center; justify-content: center; z-index: 1000;
-      padding: 1rem;
+      padding: var(--space-4);
     }
     .modal-dialog {
       background: var(--color-surface); border-radius: var(--radius-md);
-      padding: 1.5rem; max-width: 480px; width: 100%;
+      padding: var(--space-6); max-width: 480px; width: 100%;
       box-shadow: var(--shadow-lg);
     }
     .modal-dialog h3 { color: var(--color-text-primary); margin-bottom: 0.5rem; }
@@ -101,7 +101,7 @@ export const settingsComponentStyles = `
     }
     .masked-key {
       font-family: 'SF Mono','Monaco','Inconsolata','Fira Code',monospace;
-      padding: 0.5rem 0.75rem; background: var(--color-bg-secondary);
+      padding: var(--space-2) var(--space-3); background: var(--color-bg-secondary);
       border: 1px solid var(--color-border); border-radius: var(--radius-sm);
       color: var(--color-text-primary); word-break: break-all;
     }
@@ -109,7 +109,7 @@ export const settingsComponentStyles = `
     .model-list { list-style: none; margin: 0 0 1rem; padding: 0; }
     .model-item {
       display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);
+      padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border-light);
       min-height: 44px;
     }
     .model-item:last-child { border-bottom: none; }
