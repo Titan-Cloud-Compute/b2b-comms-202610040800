@@ -245,7 +245,7 @@ input::placeholder {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--color-border, rgba(0, 0, 0, 0.12));
+  background: var(--color-border);
 }
 
 .signup-prompt {

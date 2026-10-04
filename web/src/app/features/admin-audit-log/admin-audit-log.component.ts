@@ -14,19 +14,20 @@ interface AuditEntry {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div data-testid="admin-audit-log-screen">
-      <h1>Audit Log</h1>
+    <div class="page" data-testid="admin-audit-log-screen">
+      <header class="page-header"><h1>Audit Log</h1></header>
 
-      <section>
+      <section class="card">
         <h2>Activity log</h2>
         <p>Scenario: a list of AuditEntry records is displayed in chronological order returns 200</p>
         @if (loading()) {
-          <p>Loading…</p>
+          <p class="empty-state">Loading…</p>
         }
         @if (error()) {
-          <p role="alert">{{ error() }}</p>
+          <p class="form-error" role="alert">{{ error() }}</p>
         }
-        <table data-testid="audit-log-table">
+        <div class="table-scroll">
+        <table class="data-table" data-testid="audit-log-table">
           <thead>
             <tr>
               <th>Time</th>
@@ -42,28 +43,29 @@ interface AuditEntry {
                 <td>{{ entry.userId }}</td>
               </tr>
             } @empty {
-              <tr><td colspan="3">No audit entries yet</td></tr>
+              <tr><td class="empty-state" colspan="3">No audit entries yet</td></tr>
             }
           </tbody>
         </table>
+        </div>
       </section>
 
-      <section>
+      <section class="card">
         <h2>Record an entry</h2>
         <p>Scenario: the AuditEntry is stored and returns 201 with the created record</p>
         @if (formError()) {
-          <p role="alert">{{ formError() }}</p>
+          <p class="form-error" role="alert">{{ formError() }}</p>
         }
-        <form data-testid="audit-log-record-form" (ngSubmit)="submitEntry()">
-          <label>
+        <form class="stack" data-testid="audit-log-record-form" (ngSubmit)="submitEntry()">
+          <label class="form-field">
             Action
             <input type="text" name="action" [(ngModel)]="formAction" required />
           </label>
-          <label>
+          <label class="form-field">
             User ID
             <input type="text" name="userId" [(ngModel)]="formUserId" required />
           </label>
-          <button type="submit">Record</button>
+          <button class="btn-primary" type="submit">Record</button>
         </form>
       </section>
     </div>

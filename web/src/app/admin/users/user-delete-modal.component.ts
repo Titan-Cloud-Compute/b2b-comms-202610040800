@@ -66,7 +66,7 @@ export interface UserDeleteTarget {
     </div>
   `,
   styles: [`
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(14,23,38,0.45); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
+    .modal-backdrop { position: fixed; inset: 0; background: var(--color-overlay-modal); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
     .modal-card { background: white; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-modal); width: 100%; max-width: 480px; }
     h2 { font-size: var(--font-size-xl); color: var(--color-text-primary); margin: 0 0 0.75rem; }
     .lead { font-size: var(--font-size-md); color: var(--color-text-primary); margin: 0 0 0.75rem; line-height: 1.5; }

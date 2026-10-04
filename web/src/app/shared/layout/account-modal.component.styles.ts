@@ -13,7 +13,7 @@ export const accountModalStyles = `
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: var(--color-overlay-soft);
       display: flex;
       align-items: center;
       justify-content: center;

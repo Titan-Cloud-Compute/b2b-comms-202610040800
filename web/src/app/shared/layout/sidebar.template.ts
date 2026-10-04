@@ -22,7 +22,7 @@ export const SIDEBAR_TEMPLATE = `
 
       <nav class="sidebar-nav">
         @if (!auth.hasAdminRole()) {
-          <div class="nav-group-label">{{ 'Workspace' }}</div>
+          <div class="nav-group-label">{{ 'Main' }}</div>
           @for (item of firmNavItems; track item.label) {
             <a
               [routerLink]="item.path"
@@ -54,10 +54,27 @@ export const SIDEBAR_TEMPLATE = `
           }
         }
 
+        <!-- Story feature pages grouped Vendor / Customer / Admin. -->
+        @for (group of featureNavGroups; track group) {
+          <div class="nav-group-label">{{ group }}</div>
+          @for (item of featureItemsFor(group); track item.path) {
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="active"
+              class="nav-item"
+              (click)="navClick.emit()"
+            >
+              <span class="nav-label">{{ item.label }}</span>
+            </a>
+          }
+        }
+
         <!-- Role-agnostic entries (saved searches): every signed-in user owns
              their own saved searches, so this group renders outside both role
              branches above. -->
+        @if (sharedNavItems.length) {
         <div class="nav-group-label">{{ 'Personal' }}</div>
+        }
         @for (item of sharedNavItems; track item.label) {
           <a
             [routerLink]="item.path"

@@ -5,7 +5,17 @@ export interface NavItem {
   adminOnly?: boolean;
   superAdminOnly?: boolean;
   tab?: string;
+  /** Sidebar group label for feature entries (Vendor / Customer / Admin). */
+  group?: NavGroup;
 }
+
+export type NavGroup = 'Vendor' | 'Customer' | 'Admin';
+
+/** Order in which feature nav groups render in the sidebar. */
+export const FEATURE_NAV_GROUPS: NavGroup[] = ['Vendor', 'Customer', 'Admin'];
+
+/** Story feature pages, rendered grouped by `group` for every signed-in role. */
+export const FEATURE_NAV_ITEMS: NavItem[] = [];
 
 /** Entries shown to signed-in users (non-admin shell). */
 export const FIRM_NAV_ITEMS: NavItem[] = [
@@ -49,13 +59,13 @@ export const ADMIN_TAB_MAP: Record<string, string> = {
   'App Settings': 'app-settings',
 };
 // <<codegen:nav-items:start>>
-FIRM_NAV_ITEMS.push(
-  { path: '/vendor/profile', label: 'Vendor Profile', icon: '' },
-  { path: '/admin/customers', label: 'Customer Management', icon: '' },
-  { path: '/channels', label: 'Channels', icon: '' },
-  { path: '/orders', label: 'Orders', icon: '' },
-  { path: '/invoices', label: 'Invoices', icon: '' },
-  { path: '/settings/notifications', label: 'Notification Settings', icon: '' },
-  { path: '/admin/audit-log', label: 'Audit Log', icon: '' },
+FEATURE_NAV_ITEMS.push(
+  { path: '/vendor/profile', label: 'Vendor Profile', icon: '', group: 'Vendor' },
+  { path: '/admin/customers', label: 'Customer Management', icon: '', group: 'Admin' },
+  { path: '/channels', label: 'Channels', icon: '', group: 'Vendor' },
+  { path: '/orders', label: 'Orders', icon: '', group: 'Customer' },
+  { path: '/invoices', label: 'Invoices', icon: '', group: 'Vendor' },
+  { path: '/settings/notifications', label: 'Notification Settings', icon: '', group: 'Vendor' },
+  { path: '/admin/audit-log', label: 'Audit Log', icon: '', group: 'Admin' },
 );
 // <<codegen:nav-items:end>>

@@ -20,49 +20,49 @@ export interface InvoiceDownloadDto {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div data-testid="invoices-screen">
-      <h1>Invoices</h1>
+    <div class="page" data-testid="invoices-screen">
+      <header class="page-header"><h1>Invoices</h1></header>
 
-      <section>
+      <section class="card">
         <h2>Generate invoice</h2>
         <p>Vendor: the invoice is created and returns 201 with the invoice id available for download.</p>
-        <form data-testid="invoice-generate-form" (ngSubmit)="generate()">
-          <label>
+        <form class="stack" data-testid="invoice-generate-form" (ngSubmit)="generate()">
+          <label class="form-field">
             Order ID
             <input name="orderId" type="text" required [(ngModel)]="orderId" />
           </label>
-          <label>
+          <label class="form-field">
             Amount
             <input name="amount" type="number" step="0.01" min="0" required [(ngModel)]="amount" />
           </label>
-          <button type="submit" data-testid="invoice-generate-submit" [disabled]="generating">Generate invoice</button>
+          <button class="btn-primary" type="submit" data-testid="invoice-generate-submit" [disabled]="generating">Generate invoice</button>
         </form>
         @if (created) {
-          <p data-testid="invoice-created">
+          <p class="form-success" data-testid="invoice-created">
             Invoice <strong data-testid="invoice-created-id">{{ created.id }}</strong> created for order
             {{ created.orderId }} ({{ created.amount }}).
           </p>
         }
         @if (generateError) {
-          <p role="alert" data-testid="invoice-generate-error">{{ generateError }}</p>
+          <p class="form-error" role="alert" data-testid="invoice-generate-error">{{ generateError }}</p>
         }
       </section>
 
-      <section data-testid="invoice-download-panel">
+      <section class="card" data-testid="invoice-download-panel">
         <h2>Download invoice</h2>
         <p>Customer: the response returns 200 with a downloadUrl pointing to the stored invoice.</p>
-        <form (ngSubmit)="download()">
-          <label>
+        <form class="stack" (ngSubmit)="download()">
+          <label class="form-field">
             Invoice ID
             <input name="invoiceId" type="text" required [(ngModel)]="invoiceId" />
           </label>
-          <button type="submit" data-testid="invoice-download-submit" [disabled]="downloading">Get download link</button>
+          <button class="btn-primary" type="submit" data-testid="invoice-download-submit" [disabled]="downloading">Get download link</button>
         </form>
         @if (downloadUrl) {
-          <a data-testid="invoice-download-link" [href]="downloadUrl" target="_blank" rel="noopener">Download invoice</a>
+          <a class="btn-link" data-testid="invoice-download-link" [href]="downloadUrl" target="_blank" rel="noopener">Download invoice</a>
         }
         @if (downloadError) {
-          <p role="alert" data-testid="invoice-download-error">{{ downloadError }}</p>
+          <p class="form-error" role="alert" data-testid="invoice-download-error">{{ downloadError }}</p>
         }
       </section>
     </div>

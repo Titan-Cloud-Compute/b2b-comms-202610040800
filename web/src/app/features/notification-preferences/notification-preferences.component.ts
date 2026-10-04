@@ -14,33 +14,33 @@ export interface NotificationPreferenceRecord {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div data-testid="settings-notifications-screen">
-      <h1>Notification Settings</h1>
-      <form (ngSubmit)="save()">
-        <label>
+    <div class="page" data-testid="settings-notifications-screen">
+      <header class="page-header"><h1>Notification Settings</h1></header>
+      <form class="card stack" (ngSubmit)="save()">
+        <label class="form-check">
           <input type="checkbox" name="orderAlerts" data-testid="order-alerts-toggle"
                  [(ngModel)]="orderAlerts" />
           Order alerts
         </label>
-        <label>
+        <label class="form-check">
           <input type="checkbox" name="messageAlerts" data-testid="message-alerts-toggle"
                  [(ngModel)]="messageAlerts" />
           Message alerts
         </label>
-        <button type="submit" data-testid="save-notification-preferences" [disabled]="saving()">Save</button>
+        <button class="btn-primary" type="submit" data-testid="save-notification-preferences" [disabled]="saving()">Save</button>
       </form>
 
       @if (error()) {
-        <p role="alert" data-testid="notification-preferences-error">{{ error() }}</p>
+        <p class="form-error" role="alert" data-testid="notification-preferences-error">{{ error() }}</p>
       }
 
       @if (stored(); as rec) {
-        <section data-testid="notification-preferences-status" aria-live="polite">
+        <section class="card" data-testid="notification-preferences-status" aria-live="polite">
           <p>the preferences are updated and returns 200 with the stored NotificationPreference record</p>
           @if (!rec.orderAlerts && !rec.messageAlerts) {
             <p>the preferences are updated with both alert fields stored as false</p>
           }
-          <dl data-testid="notification-preferences-record">
+          <dl class="definition-list" data-testid="notification-preferences-record">
             <dt>Order alerts</dt><dd>{{ rec.orderAlerts }}</dd>
             <dt>Message alerts</dt><dd>{{ rec.messageAlerts }}</dd>
           </dl>

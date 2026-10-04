@@ -36,42 +36,44 @@ function registerCustomerInviteMocks(client: MockApiClient): void {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div data-testid="admin-customers-screen">
-      <h1>Customer Management</h1>
+    <div class="page" data-testid="admin-customers-screen">
+      <header class="page-header"><h1>Customer Management</h1></header>
 
-      <section>
+      <section class="card">
         <h2>Invite a customer</h2>
-        <ul>
+        <ul class="item-list">
           <li>When you invite a new email, a Customer record is created and returns 201 with invitationSent true.</li>
           <li>If the email is already a customer, the response returns 409 error indicating the customer already exists.</li>
         </ul>
-        <form data-testid="customer-invite-form" (ngSubmit)="invite()">
-          <label for="customer-invite-email">Customer email</label>
-          <input
-            id="customer-invite-email"
-            type="email"
-            name="email"
-            required
-            [(ngModel)]="email"
-            placeholder="buyer@corp.example.com"
-          />
-          <button type="submit" [disabled]="submitting()">Send invitation</button>
+        <form class="stack" data-testid="customer-invite-form" (ngSubmit)="invite()">
+          <div class="form-field">
+            <label for="customer-invite-email">Customer email</label>
+            <input
+              id="customer-invite-email"
+              type="email"
+              name="email"
+              required
+              [(ngModel)]="email"
+              placeholder="buyer@corp.example.com"
+            />
+          </div>
+          <button class="btn-primary" type="submit" [disabled]="submitting()">Send invitation</button>
         </form>
         @if (success()) {
-          <p role="status" data-testid="customer-invite-success">{{ success() }}</p>
+          <p class="form-success" role="status" data-testid="customer-invite-success">{{ success() }}</p>
         }
         @if (error()) {
-          <p role="alert" data-testid="customer-invite-error">{{ error() }}</p>
+          <p class="form-error" role="alert" data-testid="customer-invite-error">{{ error() }}</p>
         }
       </section>
 
-      <section>
+      <section class="card">
         <h2>Customers</h2>
-        <ul data-testid="customer-list">
+        <ul class="item-list" data-testid="customer-list">
           @for (c of customers(); track c.id) {
             <li>{{ c.email }}</li>
           } @empty {
-            <li>No customers invited yet.</li>
+            <li class="empty-state">No customers invited yet.</li>
           }
         </ul>
       </section>

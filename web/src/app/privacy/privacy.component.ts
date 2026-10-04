@@ -113,12 +113,12 @@ import { RouterLink } from '@angular/router';
     }
     .back-link {
       display: flex; align-items: center; gap: 0.375rem;
-      color: rgba(255,255,255,0.85); text-decoration: none; font-size: var(--font-size-sm);
+      color: var(--color-on-primary-text); text-decoration: none; font-size: var(--font-size-sm);
     }
     .back-link:hover { color: white; }
     .org-label {
       font-size: var(--font-size-xs); font-weight: 500; letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.7); flex: 1; text-align: center;
+      color: var(--color-on-primary-text-muted); flex: 1; text-align: center;
     }
     .page-main { flex: 1; padding: 2.5rem 1.5rem; }
     .content-card {

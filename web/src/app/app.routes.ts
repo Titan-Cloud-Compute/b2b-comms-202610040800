@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { FEATURE_ROUTES } from './features/index';
 
 export const routes: Routes = [
-  ...FEATURE_ROUTES,
   {
     path: '',
     loadComponent: () => import('./landing/landing.component').then(m => m.LandingComponent),
@@ -51,6 +50,7 @@ export const routes: Routes = [
     loadComponent: () => import('./shared/layout.component').then(m => m.LayoutComponent),
     data: { rendersSupportFooterInLayout: true },
     children: [
+      ...FEATURE_ROUTES,
       {
         path: 'dashboard',
         loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent)

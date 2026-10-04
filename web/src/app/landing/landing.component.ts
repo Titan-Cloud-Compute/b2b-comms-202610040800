@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <div class="landing-hero">
         <div class="landing-logo">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect width="48" height="48" rx="12" style="fill: var(--color-primary, #4f46e5)"/>
+            <rect width="48" height="48" rx="12" style="fill: var(--color-primary)"/>
             <path d="M14 24L22 32L34 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
@@ -28,7 +28,7 @@ import { RouterLink } from '@angular/router';
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--color-bg-secondary, #f8fafc);
+      background: var(--color-bg-secondary);
     }
     .landing-hero {
       text-align: center;
@@ -41,14 +41,14 @@ import { RouterLink } from '@angular/router';
       justify-content: center;
     }
     .landing-title {
-      font-size: 2rem;
+      font-size: var(--font-size-2xl);
       font-weight: 700;
-      color: var(--color-text-primary, #0f172a);
+      color: var(--color-text-primary);
       margin: 0 0 0.75rem;
     }
     .landing-subtitle {
-      color: var(--color-text-secondary, #64748b);
-      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-lg);
       margin: 0 0 2rem;
     }
     .landing-actions {
@@ -61,15 +61,15 @@ import { RouterLink } from '@angular/router';
       display: inline-flex;
       align-items: center;
       padding: 0.75rem 2rem;
-      background: var(--color-primary, #4f46e5);
-      color: #fff;
+      background: var(--color-primary);
+      color: var(--color-white);
       border-radius: var(--radius-btn, 0.5rem);
       font-weight: 600;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: var(--font-size-base);
     }
     .btn-signin:hover {
-      background: var(--color-primary-hover, #4338ca);
+      background: var(--color-primary-hover);
     }
   `]
 })

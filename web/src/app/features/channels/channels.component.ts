@@ -20,20 +20,20 @@ export interface Message {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div data-testid="channels-screen">
-      <h1>Channels</h1>
+    <div class="page" data-testid="channels-screen">
+      <header class="page-header"><h1>Channels</h1></header>
 
-      <section>
+      <section class="card">
         <h2>How shared channels work</h2>
         <p>When a vendor creates a shared channel, the channel is stored and displays in both the vendor and customer channel lists.</p>
         <p>When a customer posts a message, the message is stored and returns 201 with the created Message record.</p>
       </section>
 
       @if (isVendorOrAdmin()) {
-        <section>
+        <section class="card">
           <h2>Create Channel</h2>
-          <form data-testid="create-channel-form" (ngSubmit)="createChannel()">
-            <label>
+          <form class="stack" data-testid="create-channel-form" (ngSubmit)="createChannel()">
+            <label class="form-field">
               Channel name
               <input
                 data-testid="channel-name"
@@ -45,22 +45,22 @@ export interface Message {
                 placeholder="Enter channel name"
               />
             </label>
-            <button type="submit" [disabled]="creating()">Create</button>
+            <button class="btn-primary" type="submit" [disabled]="creating()">Create</button>
           </form>
         </section>
       }
 
-      <section>
+      <section class="card">
         <h2>Channel List</h2>
         @if (loading()) {
-          <p>Loading channels…</p>
+          <p class="empty-state">Loading channels…</p>
         } @else if (channels().length === 0) {
-          <p data-testid="channel-list-empty">No channels yet.</p>
+          <p class="empty-state" data-testid="channel-list-empty">No channels yet.</p>
         } @else {
-          <ul data-testid="channel-list">
+          <ul class="item-list" data-testid="channel-list">
             @for (channel of channels(); track channel.id) {
               <li>
-                <button (click)="selectChannel(channel)">{{ channel.name }}</button>
+                <button class="btn-link" type="button" (click)="selectChannel(channel)">{{ channel.name }}</button>
               </li>
             }
           </ul>
@@ -68,15 +68,15 @@ export interface Message {
       </section>
 
       @if (selectedChannel()) {
-        <section>
+        <section class="card">
           <h2>{{ selectedChannel()!.name }}</h2>
-          <ul>
+          <ul class="item-list">
             @for (msg of messages(); track msg.id) {
               <li>{{ msg.body }}</li>
             }
           </ul>
-          <form (ngSubmit)="sendMessage()">
-            <label>
+          <form class="stack" (ngSubmit)="sendMessage()">
+            <label class="form-field">
               Message
               <textarea
                 data-testid="message-body"
@@ -86,7 +86,7 @@ export interface Message {
                 placeholder="Type a message…"
               ></textarea>
             </label>
-            <button type="submit" data-testid="send-message" [disabled]="sending()">Send</button>
+            <button class="btn-primary" type="submit" data-testid="send-message" [disabled]="sending()">Send</button>
           </form>
         </section>
       }

@@ -39,49 +39,49 @@ function registerVendorMocks(api: ApiClient): void {
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div data-testid="vendor-profile-screen">
-      <h1>Vendor Profile</h1>
+    <div class="page" data-testid="vendor-profile-screen">
+      <header class="page-header"><h1>Vendor Profile</h1></header>
 
-      <section>
+      <section class="card">
         <h2>Company profile</h2>
         <p>When you submit your company profile, {{ profileOutcome }}.</p>
-        <form data-testid="vendor-profile-form" (ngSubmit)="submitProfile()">
-          <label>
+        <form class="stack" data-testid="vendor-profile-form" (ngSubmit)="submitProfile()">
+          <label class="form-field">
             Company name
             <input name="companyName" [(ngModel)]="companyName" required />
           </label>
-          <label>
+          <label class="form-field">
             Contact email
             <input name="contactEmail" type="email" [(ngModel)]="contactEmail" required />
           </label>
-          <button type="submit" [disabled]="savingProfile">Save profile</button>
+          <button class="btn-primary" type="submit" [disabled]="savingProfile">Save profile</button>
         </form>
         @if (profile) {
-          <p data-testid="vendor-profile-saved">Profile saved for {{ profile.companyName }} ({{ profile.contactEmail }}).</p>
+          <p class="form-success" data-testid="vendor-profile-saved">Profile saved for {{ profile.companyName }} ({{ profile.contactEmail }}).</p>
         }
         @if (profileError) {
-          <p role="alert">{{ profileError }}</p>
+          <p class="form-error" role="alert">{{ profileError }}</p>
         }
       </section>
 
-      <section>
+      <section class="card">
         <h2>Compliance documents</h2>
         <p>When you upload a compliance document, {{ documentOutcome }}.</p>
-        <form data-testid="vendor-document-form" (ngSubmit)="uploadDocument()">
-          <label>
+        <form class="stack" data-testid="vendor-document-form" (ngSubmit)="uploadDocument()">
+          <label class="form-field">
             Filename
             <input name="filename" [(ngModel)]="filename" required />
           </label>
-          <button type="submit" [disabled]="uploading">Upload document</button>
+          <button class="btn-primary" type="submit" [disabled]="uploading">Upload document</button>
         </form>
         @if (documentError) {
-          <p role="alert">{{ documentError }}</p>
+          <p class="form-error" role="alert">{{ documentError }}</p>
         }
-        <ul data-testid="vendor-document-library">
+        <ul class="item-list" data-testid="vendor-document-library">
           @for (doc of documents; track doc.id) {
             <li data-testid="vendor-document">{{ doc.filename }} — <span>{{ doc.status }}</span></li>
           } @empty {
-            <li>No documents uploaded yet.</li>
+            <li class="empty-state">No documents uploaded yet.</li>
           }
         </ul>
       </section>
