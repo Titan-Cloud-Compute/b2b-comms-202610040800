@@ -1,7 +1,14 @@
 // AuditLog DTOs
+import { z } from 'zod';
 
-export interface GetApiAdminAuditLogRequestDto {
-}
+export const CreateAuditEntrySchema = z.object({
+  action: z.string().trim().min(1).max(500),
+  userId: z.string().trim().min(1),
+});
+
+export type CreateAuditEntryDto = z.infer<typeof CreateAuditEntrySchema>;
+
+export interface GetApiAdminAuditLogRequestDto {}
 
 export interface GetApiAdminAuditLogResponseDto {
   id: string;
