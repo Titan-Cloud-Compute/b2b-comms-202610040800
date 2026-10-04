@@ -22,7 +22,7 @@ FEATURE_ROUTES.push(
   { path: 'channels', loadComponent: () => import('./channels/channels.component').then(m => m.ChannelsComponent) },
   { path: 'orders', loadComponent: () => import('./orders/orders.component').then(m => m.OrdersComponent) },
   { path: 'invoices', loadComponent: () => import('./invoices/invoices.component').then(m => m.InvoicesComponent) },
-  { path: 'settings/notifications', loadComponent: () => import('./settings-notifications/settings-notifications.component').then(m => m.SettingsNotificationsComponent) },
+  { path: 'settings/notifications', loadComponent: () => import('./notification-preferences/notification-preferences.component').then(m => m.NotificationPreferencesComponent) },
   { path: 'admin/audit-log', loadComponent: () => import('./admin-audit-log/admin-audit-log.component').then(m => m.AdminAuditLogComponent) },
 );
 // <<codegen:feature-routes:end>>
