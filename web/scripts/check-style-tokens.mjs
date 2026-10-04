@@ -61,7 +61,9 @@ const args = process.argv.slice(2);
 if (args.includes('--self-test')) selfTest();
 
 const fi = args.indexOf('--files');
-const targets = fi >= 0 ? args.slice(fi + 1).filter(a => !a.startsWith('--')) : DEFAULT_SCOPE;
+const rawTargets = fi >= 0 ? args.slice(fi + 1).filter(a => !a.startsWith('--')) : DEFAULT_SCOPE;
+// Support comma-separated paths in a single argument (e.g. a.css,b.ts,c.ts)
+const targets = rawTargets.flatMap(t => t.split(',').filter(Boolean));
 const files = targets.flatMap(t => walk(join(WEB, t), []));
 
 let count = 0;
