@@ -9,6 +9,7 @@
     "prisma/**/*"
   ],
   "compilerOptions": {
-    "rootDir": "src"
+    "rootDir": "src",
+    "incremental": false
   }
 }
