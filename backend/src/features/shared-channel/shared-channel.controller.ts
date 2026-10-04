@@ -1,30 +1,40 @@
-import { Controller, NotImplementedException, UseGuards, Post, Get } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { UserRole } from '@prisma/client';
+import type { Request } from 'express';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { Roles, RolesGuard } from '../../auth/roles.guard';
 import { SharedChannelService } from './shared-channel.service';
+import type { PostApiChannelsIdMessagesRequestDto, PostApiChannelsRequestDto } from './shared-channel.dto';
 
 @ApiTags('shared-channel')
 @UseGuards(JwtAuthGuard, RolesGuard)
-@Roles(UserRole.VENDOR)
-@Controller('api/shared-channel')
+@Controller('api/channels')
 export class SharedChannelController {
   constructor(private readonly sharedchannel: SharedChannelService) {}
 
-  @Post('api/channels')
-  async postApiChannels() {
-    throw new NotImplementedException();
+  @Post()
+  @Roles(UserRole.VENDOR)
+  @HttpCode(HttpStatus.CREATED)
+  async postApiChannels(@Req() req: Request, @Body() body: PostApiChannelsRequestDto) {
+    return this.sharedchannel.createChannel(req.session!.userId, body?.name);
   }
 
-  @Post('api/channels/:id/messages')
-  async postApiChannelsIdMessages() {
-    throw new NotImplementedException();
+  @Post(':id/messages')
+  @Roles(UserRole.VENDOR, UserRole.CUSTOMER)
+  @HttpCode(HttpStatus.CREATED)
+  async postApiChannelsIdMessages(
+    @Req() req: Request,
+    @Param('id') id: string,
+    @Body() body: PostApiChannelsIdMessagesRequestDto,
+  ) {
+    return this.sharedchannel.postMessage(req.session!.userId, id, body?.body);
   }
 
-  @Get('api/channels')
-  async getApiChannels() {
-    throw new NotImplementedException();
+  @Get()
+  @Roles(UserRole.VENDOR, UserRole.CUSTOMER)
+  async getApiChannels(@Req() req: Request) {
+    const s = req.session!;
+    return this.sharedchannel.listChannels(s.userId, String(s.role));
   }
-
 }
